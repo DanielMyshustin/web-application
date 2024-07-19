@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	
+
 <head>
-	<meta charset="8-UTF">
-	<meta name="veiwport" content="width=device-width, initial-scale=1.0">
-	<title>Cities</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cities</title>
 </head>
 
 <body>
-	<h2>All Cities</h2>
-	<table border="1">
-		<tr>
-			<th>City Id</th>
-			<th>City Name</th>
-		</tr>
-		<tr th:each="city : ${cities}">
-			<td th:text="${city.cityId}"></td>
-			<td th:text="${city.cityName}"></td>
-		</tr>
-	</table>
+    <h2>All Cities</h2>
+    <table border="1">
+        <tr>
+            <th>City Id</th>
+            <th>City Name</th>
+        </tr>
+        <tr th:each="city : ${cities}">
+            <td th:text="${city.cityId}"></td>
+            <td th:text="${city.name}"></td>
+        </tr>
+    </table>
+
+    <h2>Add New City</h2>
+    <form th:action="@{/cities}" th:object="${city}" method="post">
+        <label for="cityName">City Name:</label>
+        <input type="text" id="cityName" th:field="*{name}" required>
+        <button type="submit">Add City</button>
+    </form>
 </body>
+
 </html>

@@ -20,17 +20,17 @@ public class Client {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "surename")
-	private String surename;
+	@Column(name = "surname")
+	private String surname;
 	
 	@Column(name = "email")
 	private String email;
 
-	public int getId() {
+	public Integer getId() {
 		return clientId;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.clientId = id;
 	}
 
@@ -42,12 +42,12 @@ public class Client {
 		this.name = name;
 	}
 
-	public String getSurename() {
-		return surename;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setSurename(String surename) {
-		this.surename = surename;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public String getEmail() {

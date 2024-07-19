@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Form</title>
+</head>
+<body>
+    <h2>Client Form</h2>
+    <form action="/clients/new" method="post">
+        <input type="hidden" id="clientId" name="clientId" value="">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="" required><br>
+        <label for="surname">Surname:</label><br>
+        <input type="text" id="surname" name="surname" value="" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value="" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,27 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clients</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
 </head>
-
 <body>
-    <h2>All Clients</h2>
-    <table border="1">
-        <tr>
-            <th>Client Id</th>
-            <th>Client Name</th>
-            <th>Client Surname</th>
-            <th>Client Email</th>
-        </tr>
-        <tr th:each="client : ${clients}">
-            <td th:text="${client.clientId}"></td>
-            <td th:text="${client.name}"></td>
-            <td th:text="${client.surename}"></td>
-            <td th:text="${client.email}"></td>
-        </tr>
+    <h2>Clients</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="client" items="${clients}">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </c:forEach>
+        </tbody>
     </table>
+    <br>
+    <button onclick="window.location.href='/clients/new'">Add New Client</button>
 </body>
 </html>
+
+

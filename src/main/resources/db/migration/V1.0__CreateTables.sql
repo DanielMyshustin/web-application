@@ -2,7 +2,7 @@ CREATE TABLE client
 (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(50) NOT NULL,
-	surename VARCHAR(60) NOT NULL,
+	surname VARCHAR(60) NOT NULL,
 	email VARCHAR(60) NOT NULL
 );
 
