@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cities</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
 </head>
-
 <body>
-    <h2>All Cities</h2>
-    <table border="1">
-        <tr>
-            <th>City Id</th>
-            <th>City Name</th>
-        </tr>
-        <tr th:each="city : ${cities}">
-            <td th:text="${city.cityId}"></td>
-            <td th:text="${city.name}"></td>
-        </tr>
+    <h2>Cities</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="city" items="${cities}">
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </c:forEach>
+        </tbody>
     </table>
-
-    <h2>Add New City</h2>
-    <form th:action="@{/cities}" th:object="${city}" method="post">
-        <label for="cityName">City Name:</label>
-        <input type="text" id="cityName" th:field="*{name}" required>
-        <button type="submit">Add City</button>
-    </form>
+    <br>
+    <button onclick="window.location.href='/cities/new'">Add New City</button>
 </body>
-
 </html>

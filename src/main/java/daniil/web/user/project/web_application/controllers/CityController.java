@@ -1,5 +1,7 @@
 package daniil.web.user.project.web_application.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,23 +14,27 @@ import daniil.web.user.project.web_application.service.CityService;
 @Controller
 public class CityController {
 	
-	private final CityService cityService;
-
 	@Autowired
-	public CityController(CityService cityService) {
-		this.cityService = cityService;
-	}
+	private CityService cityService;
 	
 	@GetMapping("/cities")
-	public String showCities(Model model) {
-		model.addAttribute("cities", new City());
+	public String getAllCities(Model model) {
+		List<City> cities = cityService.getAllCities();
+		model.addAttribute("cities", cities);
 		return "cities";
 	}
 	
-	@PostMapping("/cities")
-	public String addCity(@ModelAttribute City city) {
-	     cityService.createCity(city);
-	     return "redirect:/cities";
+	@GetMapping("/cities/new")
+	public String showNewCityForm(Model model) {
+		City city = new City();
+		model.addAttribute("city", city);
+		return "city_form";
+	}
+	
+	@PostMapping("/cities/new")
+	public String saveCity(@ModelAttribute("city") City city) {
+		cityService.createCity(city);
+		return "redirect:/cities";
 	}
 }
 
